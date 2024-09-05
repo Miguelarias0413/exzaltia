@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -16,10 +17,17 @@ Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login/user',[LoginController::class,'login'])->name('login.login');
 
 
-Route::post('/logout',[LogoutController::class,'logout'])->name('logout.logout');
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/logout',[LogoutController::class,'logout'])->name('logout.logout');
     Route::get('/account/{user:name}',[AccountController::class, 'index'])->name('account.index');
     // Add more routes here that require authentication
+    
+});
+
+
+Route::middleware(['admin'])->group(function (){
+
+    Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
 });

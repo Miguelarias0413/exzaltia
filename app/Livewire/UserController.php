@@ -13,22 +13,31 @@ class UserController extends Component
     public $emailUser;
     public $userPhoneNumber;
     public $identification;
+    public $userEmail ;
 
     public function mount()
     {
+        $this->userEmail = Auth::user()->email;
         $this->nameUser = Auth::user()->name;
         $this->surnameUser = Auth::user()->surname;
-        $this->emailUser = Auth::user()->email;
         $this->userPhoneNumber = Auth::user()->phone_number;
         $this->identification = Auth::user()->identification; // Asumiendo que tienes este campo en tu modelo de usuario
+        
     }
 
     public function save()
     {
+        $validated = $this->validate([
+            'nameUser' => 'required|string|max:30',
+            'surnameUser' => 'required|string|max:30',
+            'userPhoneNumber' => 'required|numeric',
+            'identification' => 'required|numeric|unique:users'
+            
+
+        ]);
         $user = Auth::user();
         $user->name = $this->nameUser;
         $user->surname = $this->surnameUser;
-        $user->email = $this->emailUser;
         $user->phone_number = $this->userPhoneNumber;
         $user->identification = $this->identification;
         $user->save();

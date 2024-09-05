@@ -44,7 +44,10 @@ function Main() {
         swiperCarruselPortadas.slidePrev();
     });
 
-    
+
+    setInterval(()=>{
+        swiperCarruselPortadas.slideNext();
+    },2500)
 
 }
 

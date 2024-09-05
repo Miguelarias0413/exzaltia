@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exzaltia - @yield('title')</title>
+    <link rel="shortcut icon" href="{{asset('images/ico/exzaltiaDorada.ico')}}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/layouts/header.js'])
 
 </head>
@@ -24,10 +25,12 @@
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
 
+
             </div>
 
             <a href="{{ route('landing.index') }}">
-                <svg id="logo-exzaltia" class="h-full w-20  md:w-40 ml-[35%] md:ml-[50%]  py-6 text-white"
+
+                <svg id="logo-exzaltia" class="h-full w-28  md:w-40 ml-[35%] md:ml-[50%]  py-6 text-white"
                     version="1.0" xmlns="http://www.w3.org/2000/svg" width="1664.000000pt" height="404.000000pt"
                     viewBox="0 0 1664.000000 404.000000" preserveAspectRatio="xMidYMid meet">
 
@@ -142,7 +145,7 @@
 
                                 </form>
                                 @if (auth()->user()->is_administrator === 1)
-                                    <a href=""
+                                    <a href="{{route('admin.index')}}"
                                         class=" uppercase text-center border-b  hover:bg-slate-50 hover:text-black">
                                         Administrar
                                     </a>
@@ -208,7 +211,7 @@
             Sección 2
         </a>
         <a href="">
-            Sección 3
+            ¿Quienes somos?
         </a>
 
         <svg id="close__aside-hamburguesa" class=" w-12 h-12 cursor-pointer hover:scale-150 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -223,6 +226,8 @@
     </header>
 
     <main class=" w-full overflow-x-hidden">
+       
+       
         @yield('contenido')
     </main>
 

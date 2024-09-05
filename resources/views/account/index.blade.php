@@ -5,7 +5,12 @@
 @endsection
 
 @section('contenido')
-<section class=" min-h-screen  w-full grid grid-rows-2 gap-20 justify-items-center">
+<section class=" min-h-screen w-full grid grid-rows-2 justify-items-center">
 @livewire('user-controller')
+@livewire('address-controller')
 </section>
+
+@component('components.footer')
+@endcomponent
 @endsection
+
