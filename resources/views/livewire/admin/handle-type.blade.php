@@ -44,7 +44,7 @@
             id="name"
             name="name"
             wire:model='name'
-            class="mt-2 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
+            class="mt-2 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black text-black"
         >
         @error('name') 
         <span class="text-red-500 text-sm">{{ $message }}</span>

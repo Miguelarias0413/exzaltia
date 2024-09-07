@@ -9,7 +9,7 @@ class Gallery extends Model
 {
     use HasFactory;
 
-    private $fillable = [
+    protected $fillable = [
         'front_image',
         'back_image',
         'first_bonus_image',

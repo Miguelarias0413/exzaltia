@@ -5,6 +5,5 @@
 @endsection
 
 @section('contenido')
-@livewire('admin.handle-type')
-@livewire('admin.handle-category')
+@livewire('admin.dashboard')
 @endsection

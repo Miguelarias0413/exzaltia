@@ -29,8 +29,7 @@ class ClothingItem extends Model
     }
     public function sizes(){
         return $this->belongsToMany(Size::class,'clothingitems_sizes')
-        ->withPivot('stock')
-        ->withTimestamps();
+        ->withPivot('stock');
     }
     public function gallery(){
         return $this->hasOne(Gallery::class);

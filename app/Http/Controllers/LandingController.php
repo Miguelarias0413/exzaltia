@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClothingItem;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
     public function index(){
-
-        return view('landing');
+        $clothing_items = ClothingItem::all()->first();
+        return view('landing',compact('clothing_items'));
     }
 }

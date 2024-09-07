@@ -225,7 +225,7 @@
 
     </header>
 
-    <main class=" w-full overflow-x-hidden">
+    <main class=" w-full overflow-x-hidden bg-black">
        
        
         @yield('contenido')

@@ -30,4 +30,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['admin'])->group(function (){
 
     Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
+    Route::get('/admin/clothing/create',[AdminController::class,'create'])->name('admin.create');
+    Route::post('/admin/clothing/store',[AdminController::class,'store'])->name('admin.store');
+
 });
