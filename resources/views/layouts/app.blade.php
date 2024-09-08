@@ -137,7 +137,7 @@
                                     Cuenta
                                 </a>
                                 <form action="{{ route('logout.logout') }}" method="POST"
-                                    class="uppercase text-center border-b w-28  hover:bg-slate-50 hover:text-black">
+                                    class="uppercase text-center border-b w-28  hover:bg-slate-50  text-nowrap hover:text-black">
                                     @csrf
                                     <button>
                                         CERRAR SESION

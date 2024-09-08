@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -34,3 +35,6 @@ Route::middleware(['admin'])->group(function (){
     Route::post('/admin/clothing/store',[AdminController::class,'store'])->name('admin.store');
 
 });
+
+
+Route::get('/clothing/{clothingitem:name}',[ClothingController::class,'show'])->name('clothing.show');

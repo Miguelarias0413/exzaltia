@@ -47,7 +47,7 @@ function Main() {
 
     setInterval(()=>{
         swiperCarruselPortadas.slideNext();
-    },2500)
+    },5500)
 
 }
 
