@@ -6,9 +6,9 @@
 
 @section('contenido')
     <section class="w-screen h-screen p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid bg-red grid-cols-1 md:grid-cols-2 gap-8 h-4/5">
             <!-- Imagen del producto -->
-            <div class="flex justify-start items-center">
+            <div class="flex justify-start pl-8  items-center">
                 <img src="{{ Storage::url($clothing_item->gallery->front_image) }}" alt="{{ $clothing_item->name }}"
                     class="w-full h-auto max-w-md rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
             </div>
