@@ -23,7 +23,12 @@ Route::post('/login/user',[LoginController::class,'login'])->name('login.login')
 Route::middleware(['auth'])->group(function () {
     Route::post('/logout',[LogoutController::class,'logout'])->name('logout.logout');
     Route::get('/account/{user:name}',[AccountController::class, 'index'])->name('account.index');
-    // Add more routes here that require authentication
+    Route::get('/cart',[ClothingController::class, 'cartIndex'])->name('cart');
+    Route::get('/cart/get-quantity-cart',[ClothingController::class, 'getQuantityFromCart'])->name('getQuantityFromCart');
+    Route::post('/cart/add-to-cart',[ClothingController::class, 'addClothingToUserCart'])->name('addClothingToUserCart');
+    Route::post('/cart/destroy/{clothingItem}',[ClothingController::class, 'destroy'])->name('cart.destroy');
+    // Add more routes here that require authentication makePayment
+    Route::post('/cart/makePayment',[ClothingController::class, 'makePayment'])->name('cart.makePayment');
     
 });
 

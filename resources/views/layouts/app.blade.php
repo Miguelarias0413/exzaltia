@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Exzaltia - @yield('title')</title>
-    <link rel="shortcut icon" href="{{asset('images/ico/exzaltiaDorada.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/ico/exzaltiaDorada.ico') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/layouts/header.js'])
 
 </head>
@@ -145,7 +146,7 @@
 
                                 </form>
                                 @if (auth()->user()->is_administrator === 1)
-                                    <a href="{{route('admin.index')}}"
+                                    <a href="{{ route('admin.index') }}"
                                         class=" uppercase text-center border-b  hover:bg-slate-50 hover:text-black">
                                         Administrar
                                     </a>
@@ -166,12 +167,21 @@
 
                     </li>
                     <li>
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                            </svg>
+                        <a href="{{ route('cart') }}">
+                            <div class="size-6 relative">
+                                <div id="ShoppingCartCounter" class=" absolute -top-2/4 -right-3/4 p-1 text-yellow-400 text-xl  rounded-full size-6 flex items-center justify-center">
+                                    0
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6 ">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                                </svg>
+
+                            </div>
+
+
+
                         </a>
                     </li>
                 </ul>
@@ -197,40 +207,44 @@
     <aside
         class=" w-full h-screen lg:w-1/3 bg-neutral-900 fixed top-0 left-0 z-[51] transition-transform transform -translate-x-full
         flex flex-col items-center justify-center text-white "
-        id="aside-hamburguesa"
-    >
-    <div class=" w-10/12 h-[80%] flex flex-col items-center justify-center gap-4 uppercase underline font-semibold text-xl">
+        id="aside-hamburguesa">
+        <div
+            class=" w-10/12 h-[80%] flex flex-col items-center justify-center gap-4 uppercase underline font-semibold text-xl">
 
-        <a href="">
-            Pagina de inicio
-        </a>
-        <a href="">
-            Sección 1
-        </a>
-        <a href="">
-            Sección 2
-        </a>
-        <a href="">
-            ¿Quienes somos?
-        </a>
+            <a href="">
+                Pagina de inicio
+            </a>
+            <a href="">
+                Sección 1
+            </a>
+            <a href="">
+                Sección 2
+            </a>
+            <a href="">
+                ¿Quienes somos?
+            </a>
 
-        <svg id="close__aside-hamburguesa" class=" w-12 h-12 cursor-pointer hover:scale-150 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-            <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-        </svg>
+            <svg id="close__aside-hamburguesa" class=" w-12 h-12 cursor-pointer hover:scale-150 transition-transform"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd"
+                    d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd" />
+            </svg>
 
-    </div>
+        </div>
 
 
     </aside>
 
     </header>
 
-    <main class=" w-full overflow-x-hidden bg-black">
-       
-       
+    <main class=" w-full overflow-hidden bg-black">
+
+
         @yield('contenido')
     </main>
 
 </body>
 
 </html>
+@vite(['resources/js/landing/clothing.js'])

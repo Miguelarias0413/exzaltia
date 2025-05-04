@@ -53,6 +53,10 @@ class User extends Authenticatable
         return $this->hasOne(Address::class);
     }
 
+    public function shoppingCart(){
+        return $this->hasOne(ShoppingCart::class);
+    }
+
 
     // public function isAdministrator(){
     //     return $this->is_administrator;

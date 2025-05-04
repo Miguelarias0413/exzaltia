@@ -97,7 +97,8 @@
 
     @component('components.footer')
     @endcomponent
-@endsection
 
+  
+@endsection
 @vite(['resources/js/landing/swiper.js'])
 @vite(['resources/css/landing/swiper.css'])

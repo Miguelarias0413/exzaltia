@@ -34,4 +34,8 @@ class ClothingItem extends Model
     public function gallery(){
         return $this->hasOne(Gallery::class);
     }
+
+    public function shoppingCarts(){
+        return $this->belongsToMany(ShoppingCart::class, 'clothing_itemsshoppingcarts','clothing_item_id','shoppingcart_id');
+    }
 }
